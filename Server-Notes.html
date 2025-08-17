@@ -1,0 +1,1047 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>サーバのメモ</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2527f2de-9609-80fd-93f4-edf273854b37" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="OIP_(2).webp"/></div><h1 class="page-title">サーバのメモ</h1><p class="page-description"></p></header><div class="page-body"><p id="2527f2de-9609-8098-a55e-f8ae9375053a" class="">
+</p><hr id="2527f2de-9609-8095-9599-d62bea0c2ec0"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SQL（データベース）</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-80da-9ce8-d7a0b7cb46f7" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all"># 基本コマンド（データベース）
+CREATE DATABASE データベース名; # データベースの作成
+SHOW DATABASE;                 # データベースの確認
+DROP DATABASE データベース名;   # データベースの削除
+USE データベース名;             # データベースの選択
+
+# テーブル
+DESC テーブル名;                           # テーブルの定義の確認
+ALTER TABLE テーブル名 RENAME 新テーブル名; # テーブル名の変更
+ALTER TABLE テーブル名 ADD フィールド名 データ型 オプション ...; # フィールドの追加
+ALTER TABLE テーブル名 CHANGE フィールド名 新フィールド名 オプション; # フィールド変更
+ALTER TABLE テーブル名 DROP フィールド名; # フィールド削除
+DROP TABLE テーブル名; # テーブルの削除
+
+# データベースの作成
+CREATE TABLE データベース名.テーブル名 (
+  フィールド名1 データ型1 オプション1 オプション2...,
+  フィールド名2 データ型2 オプション3 オプション4...
+);
+## 例:
+CREATE TABLE students (
+  student_id VARCHAR(8) PRIMARY KEY, # 主キーの設定 PRIMARY KEY (student_id)としてもOK
+  name VARCHAR(20) NOT NULL DEFAULT &#x27;山田&#x27;, # NULL値を禁止, デフォルト値の設定
+  gender ENUM(&#x27;男&#x27;, &#x27;女&#x27;),
+  department_id BIGINT UNSIGNED　AUTO_INCREMENT, # 自動で連番を入力
+  admission_year YEAR,
+  FOREIGN KEY (department_id) # 外部キーの設定
+    REFERENCES departments(department_id)
+    ON UPDATE CASCADE ON DELETE CASCADE # 親キーが変更,削除された時の動作
+);
+## ON UPDATEとON DELETEのオプション
+          UPDATE           DELETE
+RESTRICT  エラー            エラー
+CASCADE   親キーの変更に追従 レコードを削除
+SET NULL  NULLに置き換わる   NULLに置き換わる
+NO ACTION RESTRICTと同じ    RESTRICTと同じ
+
+# データ検索 SELECT
+SELECT staff_code, staff_name # *で全て
+FROM データベース名.staffs　　　# データベースを指定した場合FROM staffs;
+WHERE value=0 # 条件
+(GROUP BY)
+(HAVING)
+(ORDER BY)
+LIMIT 5;
+
+## 重複したデータを除外して表示 DISTINCT
+SELECT DISTINCT 列名
+SELECT
+  SUM(quantity) AS sum,
+  MAX(quantity) AS max,
+  MIN(quantity) AS min,
+  AVG(quantity) AS ave
+FROM stocking_data;
+
+## 例：stocking_dataのquantityが5以上のレコードをカウント
+SELECT COUNT(*) AS data_length,
+FROM stocking_data
+WHERE quantity&gt;=5;
+
+## WHERE句の演算子一覧
+a=b, a&gt;=b, a&gt;b, a!=b, a&lt;&gt;b
+x BETWEEN a AND b     # xがa以上b以下
+x NOT BETWEEN a AND b # xがa以上b以下を除いた部分
+x IN (a, b, c)        # xがa, b, cのいずれか
+x NOT IN (a, b, c)    # xがa, b, c以外のデータ
+x LIKE &#x27;Pattern&#x27;      # xがPatternに一致するデータ (%は任意のN文字_は任意の一文字)
+x NOT LIKE &#x27;Pattern&#x27;  # xがPatternに一致しないデータ
+x IS NULL             # xがNULLのデータ
+x IS NOT NULL         # xがNULL以外のデータ
+
+## グループ化 GROUP BY
+SELECT date
+FROM stocking_data
+GROUP BY date; 
+
+## 例：stocking_dataでitem_code別に合計仕入数を集計し、集計結果を得る
+SELECT
+  item_code AS item,
+  SUM(quantity) AS num
+FROM stocking_data
+GROUP BY item_code;
+
+## 複数のグループ化
+SELECT
+  item_code AS item, 
+  supplier_code AS supplier,
+  SUM(quantity) AS num
+FROM stocking_data
+GROUP BY
+  item_code,
+  supplier_code;
+
+## 集計結果の抽出 HAVING
+### WHERE -&gt; GROUP BY -&gt; HAVINGの順に処理される
+SELECT 
+  staff_code AS code, 
+  staff_name AS name
+FROM staffs
+HAVING staff_code=&#x27;110&#x27;;
+
+# データの並べ替え ORDER BY
+SELECT data, item_code, quantity
+FROM stocking_data
+WHERE quantity&gt;=2
+ORDER BY quantity ASC; # 昇順：ASC, 降順：DESC, 省略するとASC
+
+## 評価順番
+1. FROM句
+2. WHERE句
+3. GROUP BY句
+4. HAVING句
+5. SELECT句
+6. ORDER BY句
+7. DISTINCT句
+8. LIMIT句
+
+# データ入力 INSERT
+INSERT INTO items # テーブル名
+  (item_code, item_name, price)
+VALUES(&#x27;6004&#x27;, &#x27;炭酸水&#x27;, 2000);
+
+# データ更新 UPDATE
+UPDATE stocking_data
+SET quantity = quantity+1;
+(WHERE句)
+
+# データ削除 DELETE
+DELETE
+FROM stocking_data;
+(WHERE句)</code></pre></div></details><hr id="2527f2de-9609-8050-aced-da6ef6cc0126"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Docker（コンテナ型仮想環境）</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-8052-9e37-f6e99c966196" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">## コンテナイメージのダウンロード
+docker pull mysql
+
+## コンテナイメージを見る
+docker images
+
+## コンテナの作成と実行
+docker run --name nish-mysql -p 13306:3306 \
+ -e MYSQL_ROOT_PASSWORD={パス} -d mysql
+# --name:コンテナの名前
+# -p:ポートフォワード
+# -e:環境変数の設定
+# -d:コンテナイメージの指定
+
+## 起動しているコンテナの一覧表示
+docker ps
+docker ps -a # 停止中のも見れる
+
+## コンテナに入る
+docker exec -it nish-mysql bash
+
+## コンテナから抜ける
+Ctrl + P, Ctrl + Q
+
+## コンテナを停止
+docker stop nish-mysql
+
+## コンテナを起動
+docker start nish-mysql
+
+## コンテナを削除
+docker rm nish-mysql
+
+## コンテナイメージの削除
+docker rmi mysql</code></pre><figure id="2527f2de-9609-8017-a11a-c1c17b84f588"><a href="https://www.youtube.com/watch?v=B5tSZr_QqXw&amp;t=326s" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">【Docker入門】初心者向け！Dockerの基本を学んでコンテナ型の仮想環境を作ろう！</div><div class="bookmark-description">📘 サプーの書籍が絶賛発売中 📘
+Amazon ▶︎ https://www.amazon.co.jp/dp/4297142856
+「VTuberサプーが教える！ Python 初心者のコード／プロのコード」
+
+詳しくはこちらのライブで解説してます！
+https://youtube.com/live/Y9WBX26m4e0?feature=share
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pythonプログラミングに関する情報を発信しているサプーです！ 
+この動画は仮想環境をサクッと作れるDockerを解説している動画です！
+
+・Dockerとは？
+・コンテナの起動方法
+・Dockerfileからイメージを作る方法
+これらについて説明しています💙
+実際にdockerを動かして実演しているので、最後まで見てもらえたら嬉しいです😊
+
+💙 メンバーシップ 💙
+説明動画 ▶︎ https://youtu.be/-Pc2SAxKSC4
+登録  ▶︎ https://www.youtube.com/channel/UC5Kgc_HNzx4GJ-w4QMeeKiQ/join
+iPhoneの方はこらから ▶︎ https://twitter.com/PythonSuppl/status/1466049000658718729?s=20
+
+💻 動作環境 💻
+Windows 10
+Python 3.9.0
+
+⭐️ チャプター ⭐️
+0:00 今日のテーマ「Docker」
+0:35 Dockerとは？
+8:15 Dockerの基本操作
+22:46 Dokcerファイルからコンテナ起動
+36:41 エンディング
+
+🌎 参考URL 🌎
+Docker インストーラ ▶︎ https://docs.docker.com/desktop/#download-and-install
+Docker Hub ▶︎ https://hub.docker.com/
+Docker 操作コマンド ▶︎ https://docs.docker.com/engine/reference/commandline/docker/
+Dockerfile 命令文 ▶︎ https://docs.docker.com/engine/reference/builder/
+
+💜  チャンネル説明 💜
+Pythonプログラミングについて解説するVtuber サプーです✨
+初心者でも分かりやすく、Pythonを体系的に学習できるような動画をアップロードしていきます！
+みんなが少しでもPythonが好きになってくれたら嬉しいな💕
+Twitterもやってるので、フォローお願いします！
+
+Twitter ▶︎ https://twitter.com/PythonSuppl
+メール ▶︎ python.supu.vtuber@gmail.com
+
+#Docker
+#コンテナ
+#仮想環境
+#PythonVTuberサプー</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/d36f30a8/img/logos/favicon_144x144.png" class="icon bookmark-icon"/>https://www.youtube.com/watch?v=B5tSZr_QqXw&amp;t=326s</div></div><img src="https://i.ytimg.com/vi/B5tSZr_QqXw/maxresdefault.jpg" class="bookmark-image"/></a></figure></div></details><hr id="2527f2de-9609-8096-a663-ea04f5d95d13"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">uv（Python仮想環境）</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-807b-9fc5-fb4331908952" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># uvのインストール
+uv init
+uv python pin 3.10
+uv venv
+
+. .venv/bin/activate # 仮想環境を立ち上げる
+
+uv add {何か} # パッケージ追加
+uv pip list # リストの確認</code></pre></div></details><hr id="2527f2de-9609-80e1-8830-d6d195e32b02"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">screen（<strong>仮想セッション）</strong></summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-8091-8172-f424936acff4" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">screen -S {何か}　# 始める
+
+screen -r {何か}　# 途中から入る
+
+ctrl+a d # ジョブを残したまま抜ける
+
+ctrl+a k # 終了
+
+screen -ls # ジョブの状態を確認
+
+screen -d {何か} # 入れんくなった時</code></pre></div></details><hr id="2527f2de-9609-803c-8ca6-de5175ade846"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">bushrc（環境変数）</summary><div class="indented"><ul id="2527f2de-9609-800d-8e35-df9a59694474" class="bulleted-list"><li style="list-style-type:disc">コマンドを作成<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-800e-8773-eecd6903b8a1" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># 1.bushrcを開く
+
+# 2.書き込む
+alias myenv=&#x27;. .venv/bin/activate&#x27;
+
+# 3.シェルの設定を反映
+source ~/.bashrc
+
+# 4.コマンドを打ち込むとそれが実行される</code></pre></li></ul><ul id="2527f2de-9609-80f7-9bc2-d4b3faad63c0" class="bulleted-list"><li style="list-style-type:disc">環境変数の設定<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-8079-acbd-ce63504fe2f0" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># 1.bushrcを開く
+
+# 2.書き込む
+export HUGGING_FACE_TOKEN=&quot;{自分のトークンの名前}&quot;
+
+# 3.シェルの設定を反映
+source ~/.bashrc
+
+# 4.pyファイルなどでosでとってこれる
+import os
+os.environ[&quot;HUGGING_FACE_TOKEN&quot;]
+os.environ.get(&quot;HUGGING_FACE_TOKEN&quot;)</code></pre></li></ul></div></details><hr id="2527f2de-9609-80ec-98a2-e56ddb0c4352"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Vim（テキストエディタ）</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-8063-8274-df9786d491d4" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$vim {ファイル名} # vimを立ち上げる
+
+Esc+i # 挿入
+
+Esc+:wq # 保存
+
+Esc+:q! # 保存せず終了</code></pre></div></details><hr id="2527f2de-9609-80d6-9db1-fa368b01945a"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">PS（プロセスの表示）</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-804b-983d-d0bd11ee0a53" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># よく使う
+ps -eo user,pid,ppid,%cpu,%mem,stat,start,time | grep -E &quot;^USER|^nishida&quot;
+
+ps aux # 履歴
+ps aux | grep ^{誰か} # 誰かの履歴を見る
+ps -eo # カラム指定（user,pid,ppid,%cpu,%mem,stat,start,time,command）
+ps --sort=-%cpu # ソート、-をつけると降順
+ps aux | head -n 10 # トップ10を表示
+
+# stat（プロセスの状態）
+R: 実行中（Running）
+S: スリープ（待機中）
+Z: ゾンビプロセス
+T: 停止中
+D: 割り込み不能なスリープ（ディスクI/O待ちなど）</code></pre><figure id="2527f2de-9609-803f-8a56-c8f96d9e95a4"><a href="https://qiita.com/kyrieee/items/f521eb0f07b7b16faa80" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">わかりづらいLinux psオプションシリーズまとめ - Qiita</div><div class="bookmark-description">はじめに LinuC 101/102の資格を取得しようと学習していますが、psオプションのややこしさに毎回つまづいているため、psオプションについてまとめました。 psオプションのわかりづらいところはなんといってもハイフンが付くか付かないかによっても若干違いがあるところで...</div></div><div class="bookmark-href"><img src="https://cdn.qiita.com/assets/favicons/public/production-c620d3e403342b1022967ba5e3db1aaa.ico" class="icon bookmark-icon"/>https://qiita.com/kyrieee/items/f521eb0f07b7b16faa80</div></div><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzNzk3MjUlMkZhODI3ZmUzZjM2M2FkZGM0NmNhYTIzMTZmMWI4ZDViMTZmMGM2NDMyJTJGeF9sYXJnZS5wbmclM0YxNzUxODM4NDY0P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz05MzE4MGZkNDk4NjRlZWJiN2IxMmJiNGVhZjQ0ZWQxYQ%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZiMjBlZTI2ZTRjOWM4MDhmYTJlYjE3Njg5NmQ4YWY2NGNjNTYxNjJhJTJGb3JpZ2luYWwuanBnJTNGMTU3MTExOTEzOD9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1mYTYzODllOTQ1YmRjYmZhZDUzNGUwYTczMDU5NTkxNw%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D151bf7ba492220a3690f38be223a9d2f?ixlib=rb-4.0.0&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJThGJUUzJTgxJThCJUUzJTgyJThBJUUzJTgxJUE1JUUzJTgyJTg5JUUzJTgxJTg0TGludXglMjBwcyVFMyU4MiVBQSVFMyU4MyU5NyVFMyU4MiVCNyVFMyU4MyVBNyVFMyU4MyVCMyVFMyU4MiVCNyVFMyU4MyVBQSVFMyU4MyVCQyVFMyU4MiVCQSVFMyU4MSVCRSVFMyU4MSVBOCVFMyU4MiU4MSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWMxNTQ1ZTAzYjQ1M2IyOWZjYzYzZTgyZGE0MjM0NzI3&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBreXJpZWVlJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OGRkYWFiYTc5NzI5NGZhNzhjYzM3Yzk4MDMxZGEzNjA&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=5qCq5byP5Lya56S-44Oq44OE44Ki44OzU1RD&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=132f5318138ec6d209f532d709505574" class="bookmark-image"/></a></figure></div></details><hr id="2527f2de-9609-80b9-ac8f-cea636b522d4"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">GitHub（コード管理・共有）</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-8067-a513-d7ab192c3a54" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># gitの削除
+rm -r .git
+
+# gitのログ
+git log
+git status
+
+# ブランチの作成（mainから切る）
+git checkout main
+git checkout -b develop
+git add .
+git commit -m &quot;create develop&quot;
+git push origin develop
+
+# 取り込み
+git init
+git branch -m main
+git clone {----.git}
+
+# ユーザ情報の登録
+git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;you@example.com&quot;
+
+# 更新
+git checkout main
+git pull origin main
+
+# コミット
+git add .
+git commit -m &quot;add files&quot;
+git push -u origin main
+
+# マージ
+git checkout develop
+git pull origin develop
+git checkout nishida
+git merge origin develop</code></pre></div></details><hr id="2527f2de-9609-804b-b71f-ced7456027c6"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Jupyter</summary><div class="indented"><p id="2527f2de-9609-8004-abe9-fd382f7f03cf" class="">jupyter+venv</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-803e-8708-f8fcbcb07518" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># 1. uv環境を作成 + 立ち上げる
+
+# 2. jupyter kernelの作成
+pip install ipykernel
+ipython kernel install --user --name=projectname
+
+# 3. pipを追加
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+
+# 4. ipynbを開き、カーネルを選択
+# 5. 環境の構築
+%pip install {何か}</code></pre></div></details><hr id="2527f2de-9609-8031-9566-c86a1c445790"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">CPU, GPU</summary><div class="indented"><ul id="2527f2de-9609-802a-b225-f855aac21164" class="bulleted-list"><li style="list-style-type:disc">GPU見たりする<ul id="2527f2de-9609-8037-89d1-f3e74172082b" class="bulleted-list"><li style="list-style-type:circle">単体GPU</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-804d-8f1c-cadfb8a1749d" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">nvidia-smi # GPU見る
+nviwatch # リアルタイムにGPU見る</code></pre><ul id="2527f2de-9609-8028-b4bf-d5fb1ea03dca" class="bulleted-list"><li style="list-style-type:circle">複数GPU</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-80d2-a59e-dbd682192058" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">nlpr    # GPUの空き具合
+squeue  # 誰が使っているか
+
+gpustat-m # GPUの空き具合と誰が使っているかを同時に見る</code></pre></li></ul><ul id="2527f2de-9609-80ca-b908-ecdf315c2c7c" class="bulleted-list"><li style="list-style-type:disc">GPUの指定<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-807a-bc2a-e51998a37235" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">CUDA_VISIBLE_DEVICES=0,1</code></pre></li></ul></div></details><hr id="2527f2de-9609-80e0-9d58-c499c4a6c675"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">sbatch（ジョブスケジューラ)</summary><div class="indented"><ul id="2527f2de-9609-80da-bc05-fa88b04655f9" class="bulleted-list"><li style="list-style-type:disc">ジョブの作成<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-80e7-974f-e6bea6f16c31" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#!/bin/bash
+#SBATCH -J testJNMT       #ジョブ名。なんでもよい。
+#SBATCH -p luce           #指定しなければデフォルトパーテーションはopus、[opus,luce,lepin,ausone,varuna,ganesa,budha,hestia]この中から選ぶ。
+#SBATCH -o logs/%x_%j.log #標準出力先。この場合[ジョブ名]_[ジョブID].logというファイル名で保存される。
+#SBATCH -t 3-00:00:00     #ジョブの実行上限時間を指定。days-hours:minutes:seconds
+#SBATCH -c 4              #要求するCPUコア数指定。指定しなければ、1コアが割り当てられる。
+#SBATCH --mem=60GB        #要求するメモリ量。
+#SBATCH --gpus=1          #要求するGPUの枚数。指定しなければGPUは使えない。
+#SBATCH --mail-type=ALL   #ジョブの開始や終了などメールを受け取ることができる。 値はBEGIN, END, FAIL, ALL。メール送信の際は#を1個を外すこと。
+#SBATCH --mail-user=nishida@ai.cs.ehime-u.ac.jp   #メール送信先。メール送信の際は#を1個を外すこと。
+. ../.venv/bin/activate
+python3 -m joeynmt test small_parallel_jaen/model_3-1/config.yaml</code></pre></li></ul><ul id="2527f2de-9609-80f3-88f4-d38e9b6ed610" class="bulleted-list"><li style="list-style-type:disc">動かす<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-806c-835f-f95f09ada4d0" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">sbatch run.sh</code></pre></li></ul><ul id="2527f2de-9609-80f8-912e-d7b69b3ef3b2" class="bulleted-list"><li style="list-style-type:disc">ジョブのキャンセル<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-801e-993e-d2380e375f5c" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">scancel -u {ユーザ名}</code></pre></li></ul></div></details><hr id="2527f2de-9609-80ff-b8cb-ec0a933a87ca"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Linux（コマンド）</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-806f-a405-ddd8e1455051" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all"># ファイル操作
+touch file.txt          # 空のファイルを作成
+cp コピー元 コピー先     # ファイルのコピー
+mv コピー元 コピー先     # ファイルの移動
+rm file.txt             # ファイルを削除
+cat file.txt            # ファイルの内容を表示
+less file.txt           # ファイルの内容をページ単位で表示
+head -n 10 file.txt     # ファイルの先頭を表示
+tail -n 10 file.txt     # ファイルの末尾を表示
+find / -name &quot;*.txt&quot;    # ファイルの検索
+locate file.txt         # ファイルを高速に検索
+grep &quot;keyword&quot; file.txt # ファイルから特定の文字列を検索
+chmod +x file.txt       # ファイルのアクセス権の変更
+
+# データの転送
+curl # データを転送
+wget -O ファイル名 URL # ファイル名でダウンロード
+
+# コマンドリストを見る
+compgen -c | sort | grep -i &#x27;^[a-zA-Z]&#x27;
+compgen -c | sort | head -n 10 # トップ10
+
+# 容量を見る
+du -h  # 各ディレクトリの容量確認
+du -sh # 全体の容量確認
+df -h  # ディスクの空き容量を表示
+
+history      # 履歴
+echo ${何か} # .bashrcの環境変数を見る
+date         # 日時を表示
+uptime       # システムの稼働時間を表示
+who          # ユーザを表示</code></pre><figure id="2527f2de-9609-8001-a7d0-db0809744c52"><a href="https://qiita.com/josephmonch/items/530e2e6c32887a50ac83" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Linuxコマンド集 - 現場でガチで使う100選！💪🔥 - Qiita</div><div class="bookmark-description">こんにちは！😊 Linuxって、 コマンド が たくさん あって、 覚えるの大変 ですよね？😥 「あれ？あの操作をするコマンドは何だっけ？ 🤔」 なんて、 毎日格闘 している方もいるのではないでしょうか？ 😅 そこで今回は、 Linuxエンジニア なら 知っておくべき 重要...</div></div><div class="bookmark-href"><img src="https://cdn.qiita.com/assets/favicons/public/production-c620d3e403342b1022967ba5e3db1aaa.ico" class="icon bookmark-icon"/>https://qiita.com/josephmonch/items/530e2e6c32887a50ac83</div></div><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzk4MTI2NCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTczNjM4ODQzNT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NDgwYThkNDM0MjU2MmJkZTBkM2VhNjFjZGM5NWFkZTI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd2484786949f3004b84daa4c403c0de5?ixlib=rb-4.0.0&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9TGludXglRTMlODIlQjMlRTMlODMlOUUlRTMlODMlQjMlRTMlODMlODklRTklOUIlODYlMjAtJTIwJUU3JThGJUJFJUU1JUEwJUI0JUUzJTgxJUE3JUUzJTgyJUFDJUUzJTgzJTgxJUUzJTgxJUE3JUU0JUJEJUJGJUUzJTgxJTg2MTAwJUU5JTgxJUI4JUVGJUJDJTgxJUYwJTlGJTkyJUFBJUYwJTlGJTk0JUE1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjllZWQ3NzY5MGRhYmM0NDMxZGZhMDkyZTIxZDkzNjc&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBqb3NlcGhtb25jaCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTgxYWIzNzhkMzM0OTI3OTZhYTc4ZTM1Yzg0OWExYTA4&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=8c44e7a8a5dce6290981893009368d06" class="bookmark-image"/></a></figure><figure id="2527f2de-9609-802e-9c6e-c5db0d0dabdb"><a href="https://eng-entrance.com/linux-command-kill" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">プロセスを終了するkillコマンドの使い方まとめ！【Linuxコマンド集】</div><div class="bookmark-description">killは実行しているプロセスを終了するコマンドだ。普通ではない動作をしているジョブやプロセスを終了する。他にも正規表現検索などでコンピュータに負荷をかけている動作を止める時などに使用する。</div></div><div class="bookmark-href"><img src="https://eng-entrance.com/wp-content/themes/xeory_base/lib/images/icon.ico" class="icon bookmark-icon"/>https://eng-entrance.com/linux-command-kill</div></div><img src="https://eng-entrance.com/wp-content/uploads/2016/09/kill-command.png" class="bookmark-image"/></a></figure><figure id="2527f2de-9609-80bb-ab94-d0119dd358f2"><a href="https://qiita.com/shuntaro_tamura/items/4016868bda604baeac3c" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">【ps・kill】実行中のプロセス表示と強制終了 - Qiita</div><div class="bookmark-description">実行中のプロセスを表示 よく使うコマンドは下記。 ps aux psコマンド：実行中のプロセスを表示 auxはオプション a：自分以外のユーザーのプロセスも表示する u：ユーザー名と開始時刻を表示する x：制御端末のないプロセスの情報も表示する 実際には、grep...</div></div><div class="bookmark-href"><img src="https://cdn.qiita.com/assets/favicons/public/production-c620d3e403342b1022967ba5e3db1aaa.ico" class="icon bookmark-icon"/>https://qiita.com/shuntaro_tamura/items/4016868bda604baeac3c</div></div><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDE0ODElMkZwcm9maWxlLWltYWdlcyUyRjE1NjEyODA0MDU_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWU2ZWY2ZTQ5MDMwYzhmY2Y2OGU1MzRkMzMyNTdiOWRi%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY2OTg5NDRlNDQ5MTU4ZDNkNzIzMjhmZmQyN2I0Y2ZlYjlmZTU5YzFmJTJGb3JpZ2luYWwuanBnJTNGMTQwODQyNDI5NT9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz0wY2Y0NjExMzZiZTc4YTIxN2RmNzBjMjg5MTZmM2Y2Ng%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Dd6cca4b68cc631383ba0bb7627ebea23?ixlib=rb-4.0.0&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwcHMlRTMlODMlQkJraWxsJUUzJTgwJTkxJUU1JUFFJTlGJUU4JUExJThDJUU0JUI4JUFEJUUzJTgxJUFFJUUzJTgzJTk3JUUzJTgzJUFEJUUzJTgyJUJCJUUzJTgyJUI5JUU4JUExJUE4JUU3JUE0JUJBJUUzJTgxJUE4JUU1JUJDJUI3JUU1JTg4JUI2JUU3JUI1JTgyJUU0JUJBJTg2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9OTEyOGE2MTliZDUzMzllYmYwOTJhOGFiNmUyYzU5ODk&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzaHVudGFyb190YW11cmEmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz03NmIzMmM4MWI3NmM4NDYxZTdhZjZjNGMxMWE5MGRlOA&amp;blend-x=242&amp;blend-y=454&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;txt64=5qCq5byP5Lya56S-44K344Ot44Kv&amp;txt-x=242&amp;txt-y=539&amp;txt-width=838&amp;txt-clip=end%2Cellipsis&amp;txt-color=%231E2121&amp;txt-font=Hiragino%20Sans%20W6&amp;txt-size=28&amp;s=f6c849b53411efe2c8adef9f0135b139" class="bookmark-image"/></a></figure><figure id="2527f2de-9609-8050-85d3-e0e89b1cf4bf"><a href="https://qiita.com/t-kubo0325/items/158e02aa6b8e62b76242" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">【メモ】Linux圧縮/解凍コマンド - Qiita</div><div class="bookmark-description">このドキュメントでは、Linuxで一般的に使用される圧縮・解凍コマンドの一覧を紹介します。 コマンドオプションの説明 tar コマンドのオプション -x: 解凍（extract） -c: 圧縮（create） -v: 詳細表示（verbose） -f: ファイ...</div></div><div class="bookmark-href"><img src="https://cdn.qiita.com/assets/favicons/public/production-c620d3e403342b1022967ba5e3db1aaa.ico" class="icon bookmark-icon"/>https://qiita.com/t-kubo0325/items/158e02aa6b8e62b76242</div></div><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMTA5MTIyJTJGcHJvZmlsZS1pbWFnZXMlMkYxNTYxOTkzMjU5P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0xOTE1YjBlMWYwYzk2NTUyODZhMGYxMGM0NWE3Nzg4OQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D22e7059f1f3df974a8500777e53b0963?ixlib=rb-4.0.0&amp;w=1200&amp;fm=jpg&amp;mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUUzJTgzJUExJUUzJTgzJUEyJUUzJTgwJTkxTGludXglRTUlOUMlQTclRTclQjglQUUlMkYlRTglQTclQTMlRTUlODclOEQlRTMlODIlQjMlRTMlODMlOUUlRTMlODMlQjMlRTMlODMlODkmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1iYzA4YmM1ZmQzMTE3MzNhYTIzOTNiZTg3MjhiMzA4NQ&amp;mark-x=120&amp;mark-y=112&amp;blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB0LWt1Ym8wMzI1JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NzFmY2E2NmZjOTQ4ODAzOGEzOTViZTNmOGM3NjY1OTE&amp;blend-x=242&amp;blend-y=480&amp;blend-w=838&amp;blend-h=46&amp;blend-fit=crop&amp;blend-crop=left%2Cbottom&amp;blend-mode=normal&amp;s=56bbe34b20a9f82022709d9b7e49b28d" class="bookmark-image"/></a></figure></div></details><hr id="2527f2de-9609-80cc-899e-d7eb0f43a7a6"/><p id="2527f2de-9609-8009-8d8f-de0770c9b5b0" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
