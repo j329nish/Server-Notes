@@ -1,4 +1,4 @@
-# サーバのメモ
+# サーバのメモ [[詳細]](https://j329nish.github.io/Server-Notes/Server-Notes.html)
 
 ## メモ一覧
 - SQL（データベース）
