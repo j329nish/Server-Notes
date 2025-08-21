@@ -678,7 +678,7 @@ blockquote {
 }
 	
 </style></head><body><article id="2527f2de-9609-80fd-93f4-edf273854b37" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="OIP_(2).webp"/></div><h1 class="page-title">サーバのメモ</h1><p class="page-description"></p></header><div class="page-body"><p id="2527f2de-9609-8098-a55e-f8ae9375053a" class="">
-</p><hr id="2527f2de-9609-8095-9599-d62bea0c2ec0"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SQL（データベース）</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2527f2de-9609-80da-9ce8-d7a0b7cb46f7" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all"># 基本コマンド（データベース）
+</p><hr id="2527f2de-9609-8095-9599-d62bea0c2ec0"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">SQL（データベース）</summary><div class="indented"><ul id="2567f2de-9609-809a-b800-ec768546dda8" class="bulleted-list"><li style="list-style-type:disc">基本コマンド</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2567f2de-9609-806a-928f-f986e8b45367" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all"># 基本コマンド（データベース）
 CREATE DATABASE データベース名; # データベースの作成
 SHOW DATABASE;                 # データベースの確認
 DROP DATABASE データベース名;   # データベースの削除
@@ -713,9 +713,8 @@ CREATE TABLE students (
 RESTRICT  エラー            エラー
 CASCADE   親キーの変更に追従 レコードを削除
 SET NULL  NULLに置き換わる   NULLに置き換わる
-NO ACTION RESTRICTと同じ    RESTRICTと同じ
-
-# データ検索 SELECT
+NO ACTION RESTRICTと同じ    RESTRICTと同じ</code></pre><p id="2567f2de-9609-8061-8d30-c3349cb1b908" class="">
+</p><ul id="2567f2de-9609-8020-a203-e5c6890e7a6f" class="bulleted-list"><li style="list-style-type:disc">SELECTコマンド</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2567f2de-9609-803c-8d4f-f05960b40c38" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all"># データ検索 SELECT
 SELECT staff_code, staff_name # *で全て
 FROM データベース名.staffs　　　# データベースを指定した場合FROM staffs;
 WHERE value=0 # 条件
@@ -730,7 +729,7 @@ SELECT
   SUM(quantity) AS sum,
   MAX(quantity) AS max,
   MIN(quantity) AS min,
-  AVG(quantity) AS ave
+  AVG(quantity) AS avg
 FROM stocking_data;
 
 ## 例：stocking_dataのquantityが5以上のレコードをカウント
@@ -779,7 +778,7 @@ SELECT
 FROM staffs
 HAVING staff_code=&#x27;110&#x27;;
 
-# データの並べ替え ORDER BY
+## データの並べ替え ORDER BY
 SELECT data, item_code, quantity
 FROM stocking_data
 WHERE quantity&gt;=2
@@ -793,9 +792,40 @@ ORDER BY quantity ASC; # 昇順：ASC, 降順：DESC, 省略するとASC
 5. SELECT句
 6. ORDER BY句
 7. DISTINCT句
-8. LIMIT句
+8. LIMIT句</code></pre><p id="2567f2de-9609-80b5-9523-c654123b28a8" class="">
+</p><ul id="2567f2de-9609-806a-8453-ef37e3707ef3" class="bulleted-list"><li style="list-style-type:disc">内部結合, 外部結合, 自然結合</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2567f2de-9609-806b-95e2-dba7812e8cc5" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all"># 内部結合 INNER JOIN, JOIN
+# 結合条件が等しい場合のみ
+SELECT
+  certifications.cardreader_id AS cardreader_id,
+  cardreaders.institution_location_id AS location_id
+FROM
+  cardreader_certifications AS certifications
+INNER JOIN cardreaders
+  ON certifications.cardreader_id=cardreaders.cardreader_id
+LIMIT 20;
 
-# データ入力 INSERT
+# 外部結合 LEFT (OUTER) JOIN, RIGHT (OUTER) JOIN
+# 左または右のテーブルを残して、そこに条件の合うテーブルを結合
+SELECT
+  COUNT(*)-COUNT(certifications.is_certificated) AS null_num
+FROM
+  cardreader_authorized_members AS auth_members
+LEFT OUTER JOIN cardreader_certifications AS certifications
+  ON auth_members.member_id=certifications.member_id;
+
+# 自然結合 NATURAL JOIN
+# 列名が同じ全ての列が等しいことを条件に結合
+SELECT 
+  certifications.cardreader_id AS cardreader_id
+FROM cardreader_certifications AS certifications
+NATURAL JOIN cardreaders
+LIMIT 100;
+
+## 評価順番
+1. FROM句
+2. JOIN句とON句
+3. その他の句</code></pre><p id="2567f2de-9609-8075-9388-d09aecbec0c8" class="">
+</p><ul id="2567f2de-9609-802f-bbc2-f8977703ceec" class="bulleted-list"><li style="list-style-type:disc">データ入力, 更新, 削除</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2567f2de-9609-80c6-a1ed-de305a637ccf" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all"># データ入力 INSERT
 INSERT INTO items # テーブル名
   (item_code, item_name, price)
 VALUES(&#x27;6004&#x27;, &#x27;炭酸水&#x27;, 2000);
